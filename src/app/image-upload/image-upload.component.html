@@ -4,34 +4,34 @@
         <div class="input-group mb-4 searchFilter">
             <input type="text" class="form-control" placeholder="Search by image title" (change)="searchFilter($event)">
             <div class="input-group-append">
-                <button class="btn btn-secondary" id="btnAddImage" (click)="openAddModal()" type="button" title="Add Image" data-bs-toggle="modal"
-                    data-bs-target="#addImageForm">
+                <button class="btn btn-secondary" id="btnAddImage" (click)="openAddModal()" type="button"
+                    title="Add Image" data-bs-toggle="modal" data-bs-target="#addImageForm">
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
         </div>
         <div *ngIf="!isRecord">
             <ngx-masonry [options]="masonryOptions" [updateLayout]="imageList" class="gallery-content" infiniteScroll
-            [infiniteScrollThrottle]="50" [infiniteScrollDistance]="2" (scrolled)="onScroll()" [scrollWindow]="false"
-            [ordered]="true">
+                [infiniteScrollThrottle]="50" [infiniteScrollDistance]="2" (scrolled)="onScroll()"
+                [scrollWindow]="false" [ordered]="true">
                 <div ngxMasonryItem class="masonry-item" *ngFor="let item of imageList">
                     <img src={{item.path}} [width]='250' title="{{item.title}}">
                 </div>
-         </ngx-masonry>
+            </ngx-masonry>
         </div>
 
         <div *ngIf="isRecord">
             <div class="empty-state">
                 <div class="empty-state__content">
-                  <div class="empty-state__icon">
-                    <img src="../../assets/NoRecord.png" alt="">
-                  </div>
-                  <div class="empty-state__message">No Records Found.</div>
-                  <div class="empty-state__help">
-                    Add a new record by simpley clicking the button on top right side.
-                  </div>
+                    <div class="empty-state__icon">
+                        <img src="../../assets/NoRecord.png" alt="">
+                    </div>
+                    <div class="empty-state__message">No Records Found.</div>
+                    <div class="empty-state__help">
+                        Add a new record by simpley clicking the button on top right side.
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
 </section>
@@ -44,7 +44,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="">Add New Image</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()" ></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="closeModal()"></button>
             </div>
             <div class="modal-body">
                 <form id="saveForm" [formGroup]="GalleryImage">
@@ -115,20 +116,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- 
-<label class="btn btn-default">
-    <img [src]="imageSrc" *ngIf="imageSrc" style="width:100%">
-    <input type="file" (change)="selectFile($event)">
-</label>
-
-<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button> -->
-
-<!-- <div id=" progress-container" *ngIf="percentDone">
-    <div id="progress-bar" [style.width]="percentDone">{{percentDone}}</div>
-</div>
-<div id="progress-text"></div> -->
-<!-- <div class="progress" *ngIf="percentDone">
-    <div class="progress-bar" [style.width]="percentDone + '%'">{{percentDone}}%</div>
-</div> -->
